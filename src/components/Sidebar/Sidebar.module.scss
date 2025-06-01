@@ -1,0 +1,120 @@
+.sidebar{
+    width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+   box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.1);
+   border-right: 1px solid rgba(86, 95, 122, 0.1);
+    background-color: rgb(9, 18, 43);
+   transition: width 0.3s ease-in-out;
+   position: relative;
+}
+
+.collapsed{
+    width: 88px;
+    .navigation{
+        .navList{
+            .navlink{
+                justify-content: center;
+            }
+            .label{
+                display: none   ;
+            }
+        }
+    }
+}
+
+.logo{
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoIcon{
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(123, 134, 169);
+    cursor: pointer;
+    transition: 0.5s ease-in-out;
+}
+
+.navList{
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+}
+
+@mixin navlinkBase{
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding:  13px;
+    border-radius: 5px;
+}
+
+.navlink{
+    @include navlinkBase;
+    color: rgb(174, 185, 225);
+}
+
+.navlink:hover{
+    color: white;
+}
+
+.navlinkActive{
+    color: rgb(203, 60, 255);
+    background-color: rgb(11, 23, 57);
+}
+
+.navlinkActive:hover{
+    color: rgb(203, 60, 255);
+}
+
+.icon{
+    font-size: 20px;
+}
+
+.profile{
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid rgb(73, 76, 87);
+    padding: 15px 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 10px;
+    margin-left: 7px;
+    font-size: 15px;
+}
+
+.image{
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.goToProfile{
+    flex: 1;
+    .profileicon{
+        font-size: 14px;
+        color: rgb(123, 134, 169);
+    }
+}
+
+.removeName{
+    display: none;
+}
