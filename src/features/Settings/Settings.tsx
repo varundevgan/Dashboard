@@ -5,11 +5,22 @@ import { useState } from 'react';
 import { FaUser } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
 import { IoMdPhotos } from "react-icons/io";
+import { BiSolidPencil } from "react-icons/bi";
+import { FaInfoCircle } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { CiMobile2 } from "react-icons/ci";
 
 
 const Settings = () => {
 
   const [activeTab, setActiveTab] = useState('personal')
+
+  const notificationData = [
+   ' I’m mentioned in a message',
+   'Someone replies to any message',
+   'I’m assigned a task',
+   'A task is overdue'
+  ]
 
   const clickedDiv = (tab : string) => {
     setActiveTab(tab)
@@ -61,14 +72,22 @@ const Settings = () => {
                 <div className={styles.photo}>
                   <div className={styles.name}>
                     <IoMdPhotos/>
-                    <p>Email Address</p>
+                    <p>Photo</p>
                   </div>
                   <div className={styles.inputName}>
                     <IoMdPhotos className={styles.icon} />
-                    <p> Click to upload or drag and drop<br />SVG, PNG, JPG or GIF (max. 800 x 400px)</p>
+                    <p><span>Click to upload</span> or drag and drop<br />SVG, PNG, JPG or GIF (max. 800 x 400px)</p>
                   </div>
                 </div>
-                <div className={styles.description}></div>
+                <div className={styles.description}>
+                  <div className={styles.name}>
+                    <BiSolidPencil />
+                    <p>Short description</p>
+                  </div>
+                  <div className={styles.inputName}>
+                    <textarea placeholder='Write a short bio about you' name="" id=""></textarea>
+                  </div>
+                </div>
               </div>
             </div>
           )
@@ -82,7 +101,46 @@ const Settings = () => {
                   <h2>General notifications</h2>
                   <p>Lorem ipsum dolor sit amet consectetur adipiscing. </p>
                </div>
-              <div className={styles.profileContent}></div>
+              <div className={styles.profileContent}>
+                <div className={styles.card}>
+                  {notificationData.map((element, i) => {
+                    return(
+                      <div key={i} className={styles.cardData}>
+                        <div className={styles.text}>
+                          <div>{element}</div>
+                          <FaInfoCircle />
+                        </div>
+                        <div className={styles.buttons}>
+                          <button className={styles.appButton}><CiMobile2 />In-app</button>
+                          <button className={styles.emailButton}><MdEmail />Email</button>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+              <div className={styles.contentInformation}>
+                  <h2>Summary notifications</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipiscing. </p>
+               </div>
+              <div className={styles.profileContent}>
+                <div className={styles.card}>
+                  {notificationData.map((element, i) => {
+                    return(
+                      <div key={i} className={styles.cardData}>
+                        <div className={styles.text}>
+                          <div>{element}</div>
+                          <FaInfoCircle />
+                        </div>
+                        <div className={styles.buttons}>
+                          <button className={styles.appButton}><CiMobile2 />In-app</button>
+                          <button className={styles.emailButton}><MdEmail />Email</button>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
             </div>
           )
         }
